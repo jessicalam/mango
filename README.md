@@ -1,5 +1,6 @@
 # Gatsby Starter: Mate
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a0fe58d5-b825-43c9-9546-4cc0dd2da69e/deploy-status)](https://app.netlify.com/sites/gracious-mangoes/deploys)
 [![Travis badge](https://api.travis-ci.org/EmaSuriano/gatsby-starter-mate.svg)](https://travis-ci.org/EmaSuriano/gatsby-starter-mate)
 [![eslint](https://img.shields.io/badge/eslint-enabled-green.svg)](https://eslint.org/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
