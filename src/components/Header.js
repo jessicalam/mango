@@ -55,7 +55,7 @@ const Header = () => (
                 alt="Portfolio Logo"
                 onClick={home.onClick}
                 style={{
-                  color: white,
+                  color: 'white',
                   cursor: 'pointer',
                 }}
               />
