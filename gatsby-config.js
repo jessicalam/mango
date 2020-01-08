@@ -12,6 +12,23 @@ const client = contentful.createClient({
 const getAboutEntry = entry => entry.sys.contentType.sys.id === 'about';
 
 const plugins = [
+  'gatsby-source-instagram',
+  {
+    resolve: `gatsby-source-instagram`,
+    options: {
+      username: `jessicalam.designphoto`,
+    },
+  },
+  'gatsby-source-instagram',
+  {
+    resolve: `gatsby-source-instagram`,
+    options: {
+      username: `jessicalam.designphoto`,
+      access_token: '0e2648c3e7c3836a3b7fa1956cf65b11',
+      instagram_id: '5815463886',
+    },
+  },
+
   'gatsby-plugin-react-helmet',
   {
     resolve: 'gatsby-plugin-web-font-loader',
