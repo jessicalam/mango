@@ -60,7 +60,7 @@
     "react-text-loop": "^2.0.1",
     "rebass": "^3.0.0",
     "styled-components": "^4.0.2",
-    "yarn": "^1.21.1"
+    "yarn": "^1.22.0"
   },
   "devDependencies": {
     "@percy/cypress": "^2.1.1",
