@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Heading, Text, Flex, Box } from 'rebass';
+import { Heading, Text, Flex, Box } from 'rebass/styled-components';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
@@ -50,20 +50,29 @@ const EllipsisHeading = styled(Heading)`
   display: -webkit-inline-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  border-bottom: ${props => props.theme.colors.primary} 5px solid;
+  border-bottom: ${(props) => props.theme.colors.primary} 5px solid;
 `;
 
 const Post = ({ title, text, image, url, date, time }) => (
-  <Card onClick={() => window.open(url, '_blank')} pb={4}>
-    <EllipsisHeading m={3} p={1}>
-      {title}
-    </EllipsisHeading>
-    {image && <CoverImage src={image} height="200px" alt={title} />}
-    <Text m={3}>{text}</Text>
-    <ImageSubtitle bg="primary" color="white" x="right" y="bottom" round>
-      {`${date} - ${Math.ceil(time)} min`}
-    </ImageSubtitle>
-  </Card>
+  <a
+    href={url}
+    target="__blank"
+    title={title}
+    style={{ textDecoration: 'none' }}
+  >
+    <Card pb={4}>
+      <EllipsisHeading m={3} p={1} color="text">
+        {title}
+      </EllipsisHeading>
+      {image && <CoverImage src={image} height="200px" alt={title} />}
+      <Text m={3} color="text">
+        {text}
+      </Text>
+      <ImageSubtitle bg="primary" color="white" x="right" y="bottom" round>
+        {`${date} - ${Math.ceil(time)} min`}
+      </ImageSubtitle>
+    </Card>
+  </a>
 );
 
 Post.propTypes = {
@@ -75,7 +84,7 @@ Post.propTypes = {
   time: PropTypes.number.isRequired,
 };
 
-const parsePost = author => postFromGraphql => {
+const parsePost = (author) => (postFromGraphql) => {
   const { id, uniqueSlug, createdAt, title, virtuals } = postFromGraphql;
   const image =
     virtuals.previewImage.imageId &&
@@ -88,7 +97,7 @@ const parsePost = author => postFromGraphql => {
     date: createdAt,
     text: virtuals.subtitle,
     image,
-    url: `${MEDIUM_URL}/${author.username}/${uniqueSlug}`,
+    url: `${MEDIUM_URL}/@${author.username}/${uniqueSlug}`,
     Component: Post,
   };
 };
@@ -130,7 +139,7 @@ MorePosts.propTypes = {
   number: PropTypes.number,
 };
 
-const edgeToArray = data => data.edges.map(edge => edge.node);
+const edgeToArray = (data) => data.edges.map((edge) => edge.node);
 
 const Writing = () => (
   <StaticQuery
